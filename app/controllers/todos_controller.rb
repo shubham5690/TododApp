@@ -10,6 +10,8 @@ class TodosController < ApplicationController
   def show
     @task=Task.new
     @tasks= @todo.tasks
+    # @tasks= @todo.tasks.where()
+    # @tasks= @todo.first.tasks.order(:done)
   end
 
   # GET /todos/new

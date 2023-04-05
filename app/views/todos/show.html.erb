@@ -7,24 +7,25 @@
 <p>
 
 
-<div> 
+<div style="border:2px solid blue ; margin:auto ; padding:15px 12px 15px 20px;"> 
   <% @tasks.each do |task|%>
+  <%# <%raise @tasks.inspect%> 
     <% if task.done==true %>
-      <strike>
+      <strike style= color:red>
       <p><%= task.title %></p>
       </strike>
       <%= form_for task do |f| %>
         <%= f.check_box :done, :value => task.done%>
         
-        <%= f.submit "task pending"%>
+        <%= f.submit "undo"%>
       <% end %>
 
     <% elsif task.done==false %>
-      <p><%= task.title %></p>
+      <p style= color:green><%= task.title %></p>
       <%= form_for task do |f| %>
         <%= f.check_box :done, :value => task.done%>
         
-        <%= f.submit "task done"%>
+        <%= f.submit "done"%>
       <% end %>
     <% end %>
   <% end %>
